@@ -27,6 +27,11 @@ try {
         PRIMARY KEY (`user_id`)
     )";
     $dbh->exec($sql);
+    $pass = hash('whirlpool', '123');
+    $dateNow = date("Y-m-d H:i:s");
+    $sql = "INSERT INTO `users` (`user_id`, `username`, `email`, `verified`, `password`, `recieveCommentEmail`, `creationDate`)
+        VALUES (1, 'admin', 'admin@gmail.com', 1, '$pass', '0', '$dateNow')";
+    $dbh->exec($sql);
 } catch (PDOException $e) {
     echo "ERROR CREATING USERS TABLE: " . $e->getMessage() . "Aborting process<br>";
 }
