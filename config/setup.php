@@ -18,8 +18,8 @@ try {
     $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     $sql = "CREATE TABLE IF NOT EXISTS `users` (
         `user_id` int(11) NOT NULL AUTO_INCREMENT,
-        `username` varchar(50) NOT NULL,
-        `email` varchar(250) NOT NULL,
+        `username` varchar(50) NOT NULL UNIQUE,
+        `email` varchar(250) NOT NULL UNIQUE,
         `verified` tinyint(1) NOT NULL DEFAULT '0',
         `password` varchar(255) NOT NULL,
         `recieveCommentEmail` varchar(255) NOT NULL DEFAULT '0',
@@ -29,8 +29,8 @@ try {
     $dbh->exec($sql);
     $pass = hash('whirlpool', '123');
     $dateNow = date("Y-m-d H:i:s");
-    $sql = "INSERT INTO `users` (`user_id`, `username`, `email`, `verified`, `password`, `recieveCommentEmail`, `creationDate`)
-        VALUES (1, 'admin', 'admin@gmail.com', 1, '$pass', '0', '$dateNow')";
+    $sql = "INSERT IGNORE INTO `users` (`username`, `email`, `verified`, `password`, `recieveCommentEmail`, `creationDate`)
+        VALUES ('admin', 'admin@gmail.com', 1, '$pass', '0', '$dateNow')";
     $dbh->exec($sql);
 } catch (PDOException $e) {
     echo "ERROR CREATING USERS TABLE: " . $e->getMessage() . "Aborting process<br>";
