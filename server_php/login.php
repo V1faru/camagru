@@ -9,7 +9,7 @@ try {
     if ($row && hash('whirlpool', $_POST['password']) ===  $row['password']) {
         echo "success\n";
         $_SESSION['username'] = $row['username'];
-        $_SESSION['verified'] = $row['verified'];
+        $_SESSION['active'] = $row['verified'];
         header('location: ../index.php');
     }
     else 

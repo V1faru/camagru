@@ -1,5 +1,7 @@
 <?php
-
+session_start();
+//require_once('config/run_setup.php');
+//require_once('server_php/verifySession.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -12,15 +14,20 @@
 	<link rel="stylesheet" href="assets/css/cunt.css">
 </head>
 <body>
-	<div>
+	<div class="header">
 		<?php include('header.php'); ?>
 	</div>
-	<div>
+	<div class="middle">
 		<?php include('front/login.php'); ?>
 	</div>
-	<div>
+	<div class="right">
 
+	</div class="footer">
+	<?php include('footer.php'); ?>
 	</div>
-	</div>
+
+	<script>
+
+	</script>
 </body>
 </html>
