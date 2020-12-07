@@ -1,5 +1,5 @@
 <?php
-require_once('config/connect.php');
+require_once('../config/connect.php');
 
 if (isset($_SESSION['username']) && $_SESSION['username'] != "") {
     try {
@@ -8,7 +8,7 @@ if (isset($_SESSION['username']) && $_SESSION['username'] != "") {
         $stmt->execute();
         $row = $stmt->fetch(PDO::FETCH_ASSOC);
         if ($row)
-            $_SESSION['active'] = $row['verified'];
+            $_SESSION['verified'] = $row['verified'];
         else {
             $_SESSION['username'] = "";
         }

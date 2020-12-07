@@ -1,7 +1,7 @@
 <?php
 session_start();
-//require_once('config/run_setup.php');
-//require_once('server_php/verifySession.php');
+//require_once('config/init_setup.php');
+require_once('server_php/verifySession.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -18,7 +18,6 @@ session_start();
 		<?php include('header.php'); ?>
 	</div>
 	<div class="middle">
-		<?php include('front/login.php'); ?>
 	</div>
 	<div class="right">
 
