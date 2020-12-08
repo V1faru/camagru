@@ -1,5 +1,5 @@
 <?php
-require_once('../config/connect.php');
+require_once('config/connect.php');
 
 if (isset($_SESSION['username']) && $_SESSION['username'] != "") {
     try {

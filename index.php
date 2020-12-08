@@ -1,6 +1,6 @@
 <?php
 session_start();
-//require_once('config/init_setup.php');
+require_once('config/init_setup.php');
 require_once('server_php/verifySession.php');
 ?>
 <!DOCTYPE html>
@@ -25,8 +25,7 @@ require_once('server_php/verifySession.php');
 	<?php include('footer.php'); ?>
 	</div>
 
-	<script>
-
+	<script src="assets/js/header.js">
 	</script>
 </body>
 </html>

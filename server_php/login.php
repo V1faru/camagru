@@ -3,7 +3,8 @@ require_once('../config/connect.php');
 session_start();
 try {
 	$stmt = $db->prepare('SELECT * FROM `users` WHERE username = :log');
-	$stmt->bindParam(':log', $_POST['username']);
+    $stmt->bindParam(':log', $_POST['username']);
+    echo $_POST['username'];
     $stmt->execute();
     $row = $stmt->fetch(PDO::FETCH_ASSOC);
     if ($row && hash('whirlpool', $_POST['password']) ===  $row['password']) {

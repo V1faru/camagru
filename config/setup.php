@@ -1,5 +1,4 @@
 <?php
-echo "init db installation muddafucka";
 require_once('database.php');
 // create DATABASE
 try {
@@ -11,7 +10,6 @@ try {
 } catch (PDOException $e) {
     echo "ERROR CREATING DATABASE: " . $e->getMessage() . "Aborting process<br>";
 }
-echo "<br>";
 try {
     //create Table 'users'
     $dbh = new PDO($DB_DSN, $DB_USER, $DB_PASSWORD);
@@ -35,7 +33,7 @@ try {
 } catch (PDOException $e) {
     echo "ERROR CREATING USERS TABLE: " . $e->getMessage() . "Aborting process<br>";
 }
-echo "<br>";
+
 try {
     //create Table 'posts'
     $dbh = new PDO($DB_DSN, $DB_USER, $DB_PASSWORD);
@@ -52,7 +50,6 @@ try {
 } catch (PDOException $e) {
     echo "ERROR CREATING posts TABLE: " . $e->getMessage() . "Aborting process<br>";
 }
-echo "<br>";
 try {
     //create Table 'comments'
     $dbh = new PDO($DB_DSN, $DB_USER, $DB_PASSWORD);
@@ -71,7 +68,7 @@ try {
 } catch (PDOException $e) {
     echo "ERROR CREATING comments TABLE: " . $e->getMessage() . "Aborting process<br>";
 }
-echo "<br>";
+
 try {
     //create Table 'likes'
     $dbh = new PDO($DB_DSN, $DB_USER, $DB_PASSWORD);
@@ -88,4 +85,3 @@ try {
 } catch (PDOException $e) {
     echo "ERROR CREATING comments TABLE: " . $e->getMessage() . "Aborting process<br>";
 }
-echo "success muddafucka";
