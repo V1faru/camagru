@@ -11,3 +11,11 @@ function mrBoss(str) {
     };
     request.send();
 }
+
+function logout() {
+    var request = new XMLHttpRequest();
+    request.open('POST', 'server_php/logout.php', true);
+    request.onload = function() {};
+    request.send();
+    document.location.reload(true);
+}
