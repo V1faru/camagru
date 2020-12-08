@@ -7,7 +7,12 @@ html,body{
     height: 100%;
     font-family: 'Numans', sans-serif;
 }
-
+a {
+    cursor: pointer;
+}
+.navbar-brand {
+    cursor: default;
+}
 /* Header */
 .bg-dark {
     /*background-color: #0f1922!important;*/
@@ -63,6 +68,12 @@ input:focus{
 .links a{
     margin-left: 4px;
 }
+#login_link{
+   color:  #e60ae6a2;
+}
+#login_link2{
+    color:  white;
+ }
 /* footer */
 #footer {
     position: fixed;
