@@ -11,12 +11,14 @@ if (isset($_POST['password']) && $_POST['password'] == $_POST['c_password']) {
         if ($row) {
             header('location: ../index.php?error=2&string=login_or_email_in_use');
         } else {
-            $stmt = $db->prepare('INSERT IGNORE INTO users (username, password, email, hash) VALUES (:log, :passwd, :mail, :hash)');
+            $stmt = $db->prepare('INSERT IGNORE INTO users (username, password, email, hash, creationDate) VALUES (:log, :passwd, :mail, :hash, :dateNow)');
             $stmt->bindParam(':log', $_POST['username']);
             $stmt->bindParam(':passwd', hash('whirlpool', $_POST['password']));
             $stmt->bindParam(':mail', $_POST['email']);
             $hash = md5(rand(0,1000));
+            $dateNow = date("Y-m-d H:i:s");
             $stmt->bindParam(':hash', $hash);
+            $stmt->bindParam(':dateNow', $dateNow);
             $stmt->execute();
             $_SESSION['username'] = $_POST['username'];
             include('verify_email.php');

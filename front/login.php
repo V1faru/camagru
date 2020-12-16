@@ -1,3 +1,11 @@
+<?php
+	//session_start();
+	//if ($_SESSION['username'] != "" && $_SESSION['verified'] == 0){
+		//header('location: ../index.php');
+	//	die();
+	//}
+	
+?>
 <div id="signIn" class="container">
 	<div class="d-flex justify-content-center h-100">
 		<div class="card">
