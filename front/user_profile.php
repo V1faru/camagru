@@ -51,12 +51,12 @@
                         <div class="body-section">
                             <h5 class="section-heading">Username</h5>
                             <p class="section-content"><?php echo $_SESSION['username'];?></p>
-                            <input type="submit" value="Edit" class="section-content btn btn-sm edit-btn">
+                            <input type="submit" value="Change Username" class="section-content btn btn-sm edit-btn">
                         </div>
                         <div class="body-section">
                             <h5 class="section-heading">Email</h5>
                             <p class="section-content"><?php echo $_SESSION['email'];?></p>
-                            <input type="submit" value="Edit" class="section-content btn btn-sm edit-btn">
+                            <input type="submit" value="Change email" class="section-content btn btn-sm edit-btn">
                         </div> 
                         <div class="body-section">
                             <h5 class="section-heading">User Since</h5>
@@ -68,6 +68,9 @@
                     </div>
                 </div>                   
             </div>
+        </div>
+        <div class="row edit-forms">
+
         </div>
     </div>
 </div>
