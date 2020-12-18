@@ -31,8 +31,14 @@ require_once('server_php/verifySession.php');
 		console.log(session + 'session');
 		var username = '<?php echo $_SESSION['username'];?>';
 		console.log(username + 'username');
+		var email = '<?php echo $_POST['email'];?>';
+		console.log(username + 'email');
+		var hash = '<?php echo $_POST['hash'];?>';
+		console.log(username + 'hash');
 		if(session == 0 && username != "")
 			mrBoss('front/verify_email.php');
+		else if (username != '' && email != '' && hash != '')
+			mrBoss('front/resetPswd.php');
 	</script>
 </body>
 </html>

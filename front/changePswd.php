@@ -2,7 +2,7 @@
 	<div class="d-flex justify-content-center h-100">
 		<div class="card">
 			<div class="card-header">
-				<h3>Reset Password</h3>
+				<h3>Change Password</h3>
 			</div>
 			<div class="card-body">
 				<form action="server_php/resetPswd.php" method="POST">

@@ -11,6 +11,15 @@ if (isset($_GET['email']) && isset($_GET['hash'])) {
         if ($row) {
             $_SESSION['username'] = $row['username'];
             $_SESSION['verified'] = $row['verified'];
+    ?>
+            <form id='its' action="../index.php" method="post">
+                <input type="hidden" name="email" value="<?php echo $_GET['email']; ?>" readonly>
+                <input type="hidden" name="hash" value="<?php echo $_GET['hash']; ?>" readonly>
+            </form>
+            <script type="text/javascript">
+                document.getElementById('its').submit();
+            </script>
+    <?php
         }
         else 
             echo "no hash or email wrong\n";
