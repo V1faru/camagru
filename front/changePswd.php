@@ -25,7 +25,7 @@
 						<input type="password" class="form-control" name="c_password" placeholder="Confirm Password">
 					</div>
 					<div class="form-group">
-						<input type="submit" value="Submit" class="btn float-right login_btn">
+						<input type="submit" value="Submit"  name="submit_pswd" class="btn float-right login_btn">
 					</div>
 				</form>
 			</div>
