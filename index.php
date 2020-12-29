@@ -26,6 +26,8 @@ require_once('server_php/verifySession.php');
 
 	<script src="assets/js/header.js">
 	</script>
+	<script src="assets/js/userSettings.js">
+	</script>
 	<script>
 		var session = '<?php echo $_SESSION['verified'];?>';
 		console.log(session + 'session');

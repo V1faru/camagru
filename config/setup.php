@@ -21,7 +21,7 @@ try {
         `hash` varchar(32) NOT NULL,
         `verified` tinyint(1) NOT NULL DEFAULT '0',
         `password` varchar(255) NOT NULL,
-        `recieveCommentEmail` varchar(255) NOT NULL DEFAULT '0',
+        `recieveCommentEmail` tinyint(1) NOT NULL DEFAULT '1',
         `creationDate` DATETIME NOT NULL,
         PRIMARY KEY (`user_id`)
     )";
