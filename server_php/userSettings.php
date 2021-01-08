@@ -22,23 +22,23 @@ if (isset($_POST['Submit']) && isset($_SESSION['username']) && $_SESSION['userna
                 $stmt->execute();
                 echo "success : mailing preference changed";
             } else if ($_POST['name'] == 'checked') {
-                if ($row['mailing'] == 1)
+                if ($row['recieveCommentEmail'] == 1)
                     echo "success : 1";
                 else
                     echo " success : 0";
             } else
                 echo "error : passwd did not match one in database";
-        } else if ($_POST['name'] === 'passChange' && isset($_POST['newPasswd']) && isset($_POST['newPasswdAgain']) && $_POST['newPasswd'] === $_POST['newPasswdAgain']) {
-            if (!preg_match('/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/', $_POST['newPasswd'])) {
+        } else if ($_POST['name'] === 'changePswd' && isset($_POST['old_passwd']) && isset($_POST['password'])&& isset($_POST['password']) && isset($_POST['c_password']) && $_POST['password'] === $_POST['c_password']) {
+            if (!preg_match('/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/', $_POST['password'])) {
                 echo "error : not a valid passwd";
                 die();
             }
-            $stmt = $db->prepare('UPDATE `users` SET passwd = :pass WHERE login = :log');
-            $stmt->bindParam(':log', $_SESSION['login']);
-            $stmt->bindParam(':pass', hash('whirlpool', $_POST['newPasswd']));
+            $stmt = $db->prepare('UPDATE `users` SET password = :pass WHERE username = :log');
+            $stmt->bindParam(':log', $_SESSION['username']);
+            $stmt->bindParam(':pass', hash('whirlpool', $_POST['password']));
             $stmt->execute();
             echo "success : passwd changed";
-        } else if ($_POST['name'] === 'emailChange' && isset($_POST['newEmail']) && isset($_POST['newEmailAgain']) && $_POST['newEmail'] === $_POST['newEmailAgain']) {
+        } else if ($_POST['name'] === 'changeEmail' && isset($_POST['newEmail']) && isset($_POST['newEmailAgain']) && $_POST['newEmail'] === $_POST['newEmailAgain']) {
             if (!preg_match('/^\S+@\S+\.\S+$/', $_POST['newEmail'])) {
                 echo "error : not a valid email";
                 die();
@@ -51,7 +51,7 @@ if (isset($_POST['Submit']) && isset($_SESSION['username']) && $_SESSION['userna
                 echo "error : email in use";
             } else {
                 $stmt = $db->prepare('UPDATE `users` SET email = :email WHERE login = :log');
-                $stmt->bindParam(':log', $_SESSION['login']);
+                $stmt->bindParam(':log', $_SESSION['username']);
                 $stmt->bindParam(':email', $_POST['newEmail']);
                 $stmt->execute();
                 echo "success : email changed";

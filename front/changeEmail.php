@@ -7,6 +7,7 @@
 			<div class="card-body">
 				<form action="server_php/userSettings.php" method="POST">
                     <div class="input-group form-group">
+					<input type="hidden" name="name" value="changeEmail">
 						<div class="input-group-prepend">
 							<span class="input-group-text"><i class="fas fa-at"></i></span>
 						</div>
@@ -16,7 +17,7 @@
 						<div class="input-group-prepend">
 							<span class="input-group-text"><i class="fas fa-at"></i></span>
 						</div>
-						<input type="text" class="form-control" name="email" placeholder="New Email">				
+						<input type="text" class="form-control" name="newEmail" placeholder="New Email">				
 					</div>
 					<div class="input-group form-group">
 						<div class="input-group-prepend">

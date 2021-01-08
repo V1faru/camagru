@@ -7,6 +7,7 @@
 			<div class="card-body">
 				<form action="server_php/userSettings.php" method="POST">
                     <div class="input-group form-group">
+                    <input type="hidden" name="name" value="delAccount">
 						<div class="input-group-prepend">
 							<span class="input-group-text"><i class="fas fa-user"></i></span>
 						</div>
